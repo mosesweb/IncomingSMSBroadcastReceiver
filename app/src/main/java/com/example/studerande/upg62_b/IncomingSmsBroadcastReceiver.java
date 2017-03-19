@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
+import android.text.style.UpdateLayout;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -40,15 +43,14 @@ public class IncomingSmsBroadcastReceiver extends BroadcastReceiver {
             SmsMessage smsMessage = SmsMessage.createFromPdu((byte[]) pdus[0]);
             return smsMessage;
         }
-
-
     }
 
     private void processMessage(final Context context, final SmsMessage smsMessage) {
-        // Do something interesting here
+
         String msg = smsMessage.getMessageBody();
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
-
+        // MainActivity m = new MainActivity();
+       // m.setMsg(msg);
     }
 
 }
